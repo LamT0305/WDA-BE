@@ -139,12 +139,10 @@ export const getOrdersConfirmed = async (req: Request, res: Response) => {
     const perPage = 20; // Items per page, default to 10
     const skip = (page - 1) * perPage;
 
-    const query = orderModel
+    const confirmedOrders = await orderModel
       .find({ status: "confirmed" })
       .skip(skip)
       .limit(perPage);
-
-    const confirmedOrders = query.exec();
     const total = await orderModel.countDocuments();
 
     res.status(200).json({
