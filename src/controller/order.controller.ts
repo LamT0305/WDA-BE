@@ -1,11 +1,19 @@
 import { Request, Response } from "express";
 import orderModel from "../model/order.model";
-import { Aggregate } from "mongoose";
 
 export const createOrder = async (req: Request, res: Response) => {
   try {
-    const { customerName, phone, address, quantity, product } = req.body;
-    if (!customerName || !phone || !address || !quantity || !product) {
+    const { customerName, phone, address, quantity, product, status } =
+      req.body;
+
+    if (
+      !customerName ||
+      !phone ||
+      !address ||
+      !quantity ||
+      !product ||
+      !status
+    ) {
       throw new Error("Invalid input");
     }
 
@@ -15,6 +23,7 @@ export const createOrder = async (req: Request, res: Response) => {
       address: address,
       quantity: quantity,
       product: product,
+      status: status,
     });
 
     res

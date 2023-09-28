@@ -3,7 +3,6 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import config from "./config/index";
-import bodyParser from "body-parser";
 
 dotenv.config();
 
@@ -12,7 +11,8 @@ const port = process.env.PORT || 3000;
 
 // Enable CORS for all origins
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 //-----------------------------Router-----------------------------------
