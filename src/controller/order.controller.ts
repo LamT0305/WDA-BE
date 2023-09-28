@@ -3,8 +3,8 @@ import orderModel from "../model/order.model";
 
 export const createOrder = async (req: Request, res: Response) => {
   try {
-    const { customerName, phone, address, quantity } = req.body;
-    if (!customerName || !phone || !address || !quantity) {
+    const { customerName, phone, address, quantity, product } = req.body;
+    if (!customerName || !phone || !address || !quantity || !product) {
       throw new Error("Invalid input");
     }
 
@@ -13,6 +13,7 @@ export const createOrder = async (req: Request, res: Response) => {
       phone: phone,
       address: address,
       quantity: quantity,
+      product: product,
     });
 
     res
