@@ -23,6 +23,10 @@ const orderSchema = new Schema<IOrder>(
       type: "number",
       required: true,
     },
+    status: {
+      type: "string",
+      required: true,
+    },
   },
   {
     timestamps: true,

@@ -4,4 +4,5 @@ export default interface IOrder {
   phone: string;
   address: string;
   quantity: number;
+  status: string;
 }
