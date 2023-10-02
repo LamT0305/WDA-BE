@@ -34,6 +34,7 @@ export const login = async (req: Request, res: Response) => {
     }
   } catch (error: any) {
     res.status(500).json({ error: error });
+    console.log(error)
   }
 };
 
