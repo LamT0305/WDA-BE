@@ -151,7 +151,8 @@ export const getOrdersConfirmed = async (req: Request, res: Response) => {
     const confirmedOrders = await orderModel
       .find({ status: "confirmed" })
       .skip(skip)
-      .limit(perPage);
+      .limit(perPage)
+      .sort({ updatedAt: -1})
     const total = await orderModel.countDocuments();
 
     res.status(200).json({
